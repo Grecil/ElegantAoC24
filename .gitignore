@@ -125,6 +125,7 @@ celerybeat.pid
 .env
 .venv
 .cph
+.ruff_cache
 env/
 venv/
 ENV/
