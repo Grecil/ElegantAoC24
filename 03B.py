@@ -7,9 +7,9 @@ total_sum = 0
 matches = re.findall(exp, arr)
 state = True
 for j in matches:
-    if "do()" in j:
+    if j[2] == "do()":
         state = True
-    elif "don't()" in j:
+    elif j[3] == "don't()":
         state = False
     elif state:
         total_sum += int(j[0]) * int(j[1])
