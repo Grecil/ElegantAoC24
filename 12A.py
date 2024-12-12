@@ -13,12 +13,10 @@ def bfs(x, y):
         a += 1
         for dr, dc in ((-1, 0), (1, 0), (0, -1), (0, 1)):
             nr, nc = r + dr, c + dc
-            if 0 <= nr < n and 0 <= nc < m:
-                if grid[nr][nc] == letter and not vis[nr][nc]:
+            if 0 <= nr < n and 0 <= nc < m and grid[nr][nc] == letter:
+                if not vis[nr][nc]:
                     vis[nr][nc] = True
                     queue.append((nr, nc))
-                elif grid[nr][nc] != letter:
-                    p += 1
             else:
                 p += 1
 
