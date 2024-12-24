@@ -3,14 +3,11 @@ from collections import defaultdict
 from itertools import chain
 
 
-def swap(pairs, gates, a, b):
+def swap(a, b):
     pairs.append((a, b))
     for i, (x, n) in enumerate(gates):
-        if n == a:
-            gates[i] = (x, b)
-        elif n == b:
-            gates[i] = (x, a)
-
+        if n in (a,b):
+            gates[i]=(x,next(j for j in (a,b) if j!=n))
 
 wires, joints = sys.stdin.read().split("\n\n")
 wires = {i[:3]: int(i[5]) for i in wires.splitlines()}
@@ -32,15 +29,12 @@ while len(pairs) < 4:
                 c1 = reverse_lookup[frozenset((xi, "AND", yi))]
                 c2 = reverse_lookup[frozenset((bit, "AND", carry))]
                 carry = reverse_lookup[frozenset((c1, "OR", c2))]
-        if not adder:
-            a, op, b = lookup[zi]
-            if frozenset((a, "XOR", carry)) in reverse_lookup:
-                swap(pairs, gates, bit, a)
+            else:
+                a,op,b=lookup[zi]
+                expected=next(n for n in (a,b) if n!=carry)
+                swap(bit,expected)
                 break
-            elif frozenset((b, "XOR", carry)) in reverse_lookup:
-                swap(pairs, gates, bit, b)
-                break
-        elif adder != zi:
-            swap(pairs, gates, adder, zi)
+        if adder != zi:
+            swap(adder, zi)
             break
 print(*sorted(chain.from_iterable(pairs)), sep=",")
