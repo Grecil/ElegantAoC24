@@ -32,8 +32,7 @@ while len(pairs) < 4:
                 carry = reverse_lookup[frozenset((c1, "OR", c2))]
             else:
                 a, op, b = lookup[zi]
-                expected = next(n for n in (a, b) if n != carry)
-                swap(bit, expected)
+                swap(bit, next(n for n in (a, b) if n != carry))
                 break
         if adder != zi:
             swap(adder, zi)
