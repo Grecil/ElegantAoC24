@@ -1,6 +1,6 @@
 import sys
 
-arr = sys.stdin.read().split("\n")
+arr = sys.stdin.read().splitlines()
 print(
     sum(
         arr[i][j] + arr[i + 1][j + 1] + arr[i + 2][j + 2] in ("MAS", "SAM")

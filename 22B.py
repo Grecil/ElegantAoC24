@@ -1,7 +1,7 @@
 import sys
 from collections import defaultdict
 
-arr = [int(i) for i in sys.stdin.read().split("\n")]
+arr = [int(i) for i in sys.stdin.read().splitlines()]
 prices = []
 for i in arr:
     temp = []

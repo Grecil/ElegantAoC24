@@ -1,6 +1,6 @@
 import sys
 
-arr = [i.split() for i in sys.stdin.read().split("\n")]
+arr = [i.split() for i in sys.stdin.read().splitlines()]
 pos = [list(map(int, p[2:].split(","))) + list(map(int, v[2:].split(","))) for p, v in arr]
 for i in range(1, 10000):
     grid = [[" "] * 103 for _ in range(101)]

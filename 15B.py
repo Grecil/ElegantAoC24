@@ -3,7 +3,7 @@ import sys
 arr, moves = sys.stdin.read().split("\n\n")
 moves = moves.replace("\n", "")
 arr = arr.replace("#", "##").replace(".", "..").replace("O", "[]").replace("@", "@.")
-grid = [list(i) for i in arr.split("\n")]
+grid = [list(i) for i in arr.splitlines()]
 n, m = len(grid), len(grid[0])
 for i in range(1, n - 1):
     for j in range(1, m - 1):

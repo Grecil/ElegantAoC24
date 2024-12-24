@@ -1,6 +1,6 @@
 import sys
 
-arr = [list(i) for i in sys.stdin.read().split("\n")]
+arr = [list(i) for i in sys.stdin.read().splitlines()]
 n, m = len(arr), len(arr[0])
 for i in range(n):
     for j in range(m):

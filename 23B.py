@@ -11,7 +11,7 @@ def bron_kerbosch(R, P, X):
         X.add(v)
 
 
-edges = [tuple(i.split("-")) for i in sys.stdin.read().split("\n")]
+edges = [tuple(i.split("-")) for i in sys.stdin.read().splitlines()]
 graph = defaultdict(set)
 for u, v in edges:
     graph[u].add(v)

@@ -23,7 +23,7 @@ def bfs(x, y):
     return a, p
 
 
-grid = [list(i) for i in sys.stdin.read().split("\n")]
+grid = [list(i) for i in sys.stdin.read().splitlines()]
 n, m = len(grid), len(grid[0])
 vis = [[False] * m for i in range(n)]
 ans = 0

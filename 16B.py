@@ -1,7 +1,7 @@
 import sys
 from collections import defaultdict, deque
 
-grid = sys.stdin.read().split("\n")
+grid = sys.stdin.read().splitlines()
 n, m = len(grid), len(grid[0])
 for i in range(n):
     for j in range(m):

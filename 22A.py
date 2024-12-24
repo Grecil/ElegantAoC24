@@ -1,6 +1,6 @@
 import sys
 
-arr = [int(i) for i in sys.stdin.read().split("\n")]
+arr = [int(i) for i in sys.stdin.read().splitlines()]
 ans = 0
 for i in arr:
     for _ in range(2000):

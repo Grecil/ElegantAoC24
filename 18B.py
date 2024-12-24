@@ -2,7 +2,7 @@ import sys
 from collections import deque
 from bisect import bisect_left
 
-arr = [list(map(int, i.split(","))) for i in sys.stdin.read().split("\n")]
+arr = [list(map(int, i.split(","))) for i in sys.stdin.read().splitlines()]
 
 
 def search(ind):

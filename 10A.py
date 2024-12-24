@@ -14,6 +14,6 @@ def bfs(x, y):
     return len(ans)
 
 
-arr = [[int(i) for i in list(j)] for j in sys.stdin.read().split("\n")]
+arr = [[int(i) for i in list(j)] for j in sys.stdin.read().splitlines()]
 n, m = len(arr), len(arr[0])
 print(sum(bfs(i, j) if arr[i][j] == 0 else 0 for i in range(n) for j in range(m)))

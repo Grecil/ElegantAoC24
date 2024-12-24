@@ -1,7 +1,7 @@
 import sys
 from itertools import combinations
 
-arr = [list(map(int, i.split())) for i in sys.stdin.read().split("\n")]
+arr = [list(map(int, i.split())) for i in sys.stdin.read().splitlines()]
 print(
     sum(
         any(

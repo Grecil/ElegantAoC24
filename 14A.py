@@ -1,6 +1,6 @@
 import sys
 
-arr = [i.split() for i in sys.stdin.read().split("\n")]
+arr = [i.split() for i in sys.stdin.read().splitlines()]
 q = [[0, 0], [0, 0]]
 for p, v in arr:
     px, py = map(int, p[2:].split(","))

@@ -2,7 +2,7 @@ import sys
 from itertools import product
 
 ops = [list(product("+*", repeat=i)) for i in range(12)]
-arr = sys.stdin.read().split("\n")
+arr = sys.stdin.read().splitlines()
 ans = 0
 for i in arr:
     target, nums = i.split(": ")

@@ -1,7 +1,7 @@
 import sys
 from collections import deque
 
-arr = [list(map(int, i.split(","))) for i in sys.stdin.read().split("\n")]
+arr = [list(map(int, i.split(","))) for i in sys.stdin.read().splitlines()]
 grid = [[1] * 71 for _ in range(71)]
 for i, j in arr[:1024]:
     grid[i][j] = 0

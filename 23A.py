@@ -1,7 +1,7 @@
 import sys
 from collections import defaultdict
 
-edges = [i.split("-") for i in sys.stdin.read().split("\n")]
+edges = [i.split("-") for i in sys.stdin.read().splitlines()]
 triplets = set()
 seen = defaultdict(set)
 for x, y in edges:

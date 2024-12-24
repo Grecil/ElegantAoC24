@@ -1,6 +1,6 @@
 import sys
 
-arr = [i.split("\n") for i in sys.stdin.read().split("\n\n")]
+arr = [i.splitlines() for i in sys.stdin.read().split("\n\n")]
 ans = 0
 for a, b, c in arr:
     a1, a2 = map(int, a[12:].split(", Y+"))

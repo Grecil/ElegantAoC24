@@ -4,8 +4,8 @@ from operator import or_, xor, and_
 
 gates = {"AND": and_, "OR": or_, "XOR": xor}
 wires, joints = sys.stdin.read().split("\n\n")
-wires = {i[:3]: int(i[5]) for i in wires.split("\n")}
-joints = deque([i.split() for i in joints.split("\n")])
+wires = {i[:3]: int(i[5]) for i in wires.splitlines()}
+joints = deque([i.split() for i in joints.splitlines()])
 while joints:
     w1, g, w2, _, w3 = joints.popleft()
     if w1 in wires and w2 in wires:

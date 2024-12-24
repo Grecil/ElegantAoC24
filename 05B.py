@@ -2,8 +2,8 @@ import sys
 from collections import defaultdict
 
 rules, updates = sys.stdin.read().split("\n\n")
-rules = [i.split("|") for i in rules.split("\n")]
-updates = [i.split(",") for i in updates.split("\n")]
+rules = [i.split("|") for i in rules.splitlines()]
+updates = [i.split(",") for i in updates.splitlines()]
 ruledict = defaultdict(set)
 for a, b in rules:
     ruledict[a].add(b)

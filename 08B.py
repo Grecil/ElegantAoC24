@@ -1,7 +1,7 @@
 import sys
 from collections import defaultdict
 
-arr = sys.stdin.read().split("\n")
+arr = sys.stdin.read().splitlines()
 d = defaultdict(list)
 n, m = len(arr), len(arr[0])
 for i in range(n):
