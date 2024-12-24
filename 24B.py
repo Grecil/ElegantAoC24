@@ -6,8 +6,9 @@ from itertools import chain
 def swap(a, b):
     pairs.append((a, b))
     for i, (x, n) in enumerate(gates):
-        if n in (a,b):
-            gates[i]=(x,next(j for j in (a,b) if j!=n))
+        if n in (a, b):
+            gates[i] = (x, next(j for j in (a, b) if j != n))
+
 
 wires, joints = sys.stdin.read().split("\n\n")
 wires = {i[:3]: int(i[5]) for i in wires.splitlines()}
@@ -30,9 +31,9 @@ while len(pairs) < 4:
                 c2 = reverse_lookup[frozenset((bit, "AND", carry))]
                 carry = reverse_lookup[frozenset((c1, "OR", c2))]
             else:
-                a,op,b=lookup[zi]
-                expected=next(n for n in (a,b) if n!=carry)
-                swap(bit,expected)
+                a, op, b = lookup[zi]
+                expected = next(n for n in (a, b) if n != carry)
+                swap(bit, expected)
                 break
         if adder != zi:
             swap(adder, zi)
