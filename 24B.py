@@ -18,22 +18,20 @@ while len(pairs) < 4:
     adder, carry = "", ""
     lookup = {output: (a, op, b) for (a, op, b), output in gates}
     reverse_lookup = defaultdict(str, {frozenset(v): k for k, v in lookup.items()})
-    for i in range(num_z):
+    adder = reverse_lookup[frozenset(("x00", "XOR", "y00"))]
+    carry = reverse_lookup[frozenset(("x00", "AND", "y00"))]
+    for i in range(1,num_z):
         xi, yi, zi = f"x{i:02}", f"y{i:02}", f"z{i:02}"
-        if i == 0:
-            adder = reverse_lookup[frozenset(("x00", "XOR", "y00"))]
-            carry = reverse_lookup[frozenset(("x00", "AND", "y00"))]
+        bit = reverse_lookup[frozenset((xi, "XOR", yi))]
+        adder = reverse_lookup[frozenset((bit, "XOR", carry))]
+        if adder:
+            c1 = reverse_lookup[frozenset((xi, "AND", yi))]
+            c2 = reverse_lookup[frozenset((bit, "AND", carry))]
+            carry = reverse_lookup[frozenset((c1, "OR", c2))]
         else:
-            bit = reverse_lookup[frozenset((xi, "XOR", yi))]
-            adder = reverse_lookup[frozenset((bit, "XOR", carry))]
-            if adder:
-                c1 = reverse_lookup[frozenset((xi, "AND", yi))]
-                c2 = reverse_lookup[frozenset((bit, "AND", carry))]
-                carry = reverse_lookup[frozenset((c1, "OR", c2))]
-            else:
-                a, op, b = lookup[zi]
-                swap(bit, next(n for n in (a, b) if n != carry))
-                break
+            a, op, b = lookup[zi]
+            swap(bit, next(n for n in (a, b) if n != carry))
+            break
         if adder != zi:
             swap(adder, zi)
             break
