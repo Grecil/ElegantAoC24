@@ -20,7 +20,7 @@ while len(pairs) < 4:
     reverse_lookup = defaultdict(str, {frozenset(v): k for k, v in lookup.items()})
     adder = reverse_lookup[frozenset(("x00", "XOR", "y00"))]
     carry = reverse_lookup[frozenset(("x00", "AND", "y00"))]
-    for i in range(1,num_z):
+    for i in range(1, num_z):
         xi, yi, zi = f"x{i:02}", f"y{i:02}", f"z{i:02}"
         bit = reverse_lookup[frozenset((xi, "XOR", yi))]
         adder = reverse_lookup[frozenset((bit, "XOR", carry))]
